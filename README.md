@@ -10,3 +10,4 @@ Priv sunucularına göre içinde guard bulunduran özel oda sistemli çekiliş s
 ![image](https://cdn.discordapp.com/attachments/1081920855514296330/1081934483432939560/image.png)
 ![image](https://cdn.discordapp.com/attachments/1054752648886222933/1081938869957697546/image.png)
 ![image](https://cdn.discordapp.com/attachments/1054752648886222933/1081939076262920342/image.png)
+![image](https://cdn.discordapp.com/attachments/1054752650631061529/1081969845425422486/image.png)
