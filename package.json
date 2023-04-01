@@ -1,0 +1,27 @@
+{
+  "name": "shut",
+  "version": "14.0.0",
+  "description": "shut",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Shut",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/voice": "^0.14.0",
+    "colors": "^1.4.0",
+    "discord-api-types": "^0.36.2",
+    "discord-modals": "^1.3.9",
+    "discord.js": "^14.7.1",
+    "mathjs": "^11.3.3",
+    "moment": "^2.29.4",
+    "moment-duration-format": "^2.3.2",
+    "mongoose": "^7.0.0",
+    "ms": "^2.1.3",
+    "node-fetch": "^2.6.7",
+    "pretty-ms": "^6.0.1",
+    "super-djs": "^1.7.4"
+  }
+}
