@@ -1,6 +1,6 @@
 # v14-priv-bot
 
-# 15 Stara Anında Atıyom
+# Starlayın Cano Be
 
 Priv sunucularına göre içinde guard bulunduran özel oda sistemli çekiliş sistemli priv botu
 
