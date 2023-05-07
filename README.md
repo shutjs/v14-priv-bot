@@ -1,7 +1,7 @@
 # v14-priv-bot
 
 # Starlayın Cano Be
-
+#İçindeki d.txtleri silin onlar githuba doğru düzgün yüklensin diye
 Priv sunucularına göre özel oda sistemli çekiliş sistemli priv botu
 
 ![image](https://cdn.discordapp.com/attachments/1081914672598495322/1081933671818334248/image.png)
