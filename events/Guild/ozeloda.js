@@ -28,7 +28,7 @@ client.on('interactionCreate', async (interaction) => {
                       .setStyle('SHORT')
                       .setMinLength(2)
                       .setMaxLength(15)
-                      .setPlaceholder('Örn: Cumali Priv')
+                      .setPlaceholder('Örn: Shut Priv')
                       .setRequired(true),
                       new TextInputComponent()
                           .setCustomId('ozelOda_limit')
@@ -107,9 +107,10 @@ client.on('interactionCreate', async (interaction) => {
                       );
                   text.send({
                       content: `
-Merhaba <@${modal.member.id}>! Kanalını <#${voice.id}> yönetmek için aşağıdaki menüyü kullanabilirsin!
-Odanda uzun bir süre aktiflik göstermezsen odan silinecektir.
-Odana eklediğin tüm kullanıcılar odanı yönetebilir!
+**Merhaba <@${modal.member.id}>!**
+Bu kanal, <#${voice.id}>, yönetimi için aşağıdaki menüyü kullanabilirsin. **Odanda uzun bir süre aktiflik göstermezsen, odanın silineceğini unutma.**
+Odana eklediğin tüm kullanıcılar, odanı yönetebilir!
+Keyifli sohbetler dileriz!
                   `, components: [row]
                   })
 
@@ -118,7 +119,7 @@ Odana eklediğin tüm kullanıcılar odanı yönetebilir!
                       tChannelID: text.id,
                       vChannelID: voice.id,
                   }).save();
-                  interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `<@${modal.member.id}> kişisinin kişisi kendisine **${firstResponse}** isimli odayı oluşturdu! (Ses Kanalı : <#${voice.id}> - Yönetim Paneli: <#${text.id}> - Kullanıcı Sayısı: ${secondResponse})` })
+                  interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `${interaction.guild.emojiBul("Onay")} <@${modal.member.id}> kişisinin kişisi kendisine **${firstResponse}** isimli odayı oluşturdu! (Ses Kanalı : <#${voice.id}> - Yönetim Paneli: <#${text.id}> - Kullanıcı Sayısı: ${secondResponse})` })
               }
           });
               }
@@ -155,8 +156,8 @@ Odana eklediğin tüm kullanıcılar odanı yönetebilir!
                             }
                             await channel.v.edit({ userLimit: newLimit })
                             await modal.deferReply({ ephemeral: true })
-                            modal.followUp({ content: `Merhaba! Kanalın için limiti ${newLimit} olarak ayarladım!` })
-                            interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `<@${modal.member.id}> kişisinin <#${channel.v}> kanalının yeni limiti ${newLimit} olarak ayarlandı!` })
+                            modal.followUp({ content: `${interaction.guild.emojiBul("Onay")}  Merhaba! Kanalın için limiti ${newLimit} olarak ayarladım!` })
+                            interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `${interaction.guild.emojiBul("Onay")} <@${modal.member.id}> kişisinin ${channel.v} kanalının yeni limiti ${newLimit} olarak ayarlandı!` })
                         }
                     })
                 }
@@ -192,8 +193,8 @@ Odana eklediğin tüm kullanıcılar odanı yönetebilir!
                            await channel.v.permissionOverwrites.edit(kullanici, { ViewChannel: true, Connect: true  });
                            await channel.t.permissionOverwrites.edit(kullanici, { ViewChannel: true, SendMessages: true });
                             await modal.deferReply({ ephemeral: true })
-                            modal.followUp({ content: `Merhaba! Kanalına <@${kullanici}> kişisini başarıyla ekledin!` })
-                            interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `<@${modal.member.id}> kişisinin <#${channel.v}> kanalına <@${kullanici}> eklendi` })
+                            modal.followUp({ content: `${interaction.guild.emojiBul("Onay")} Merhaba! Kanalına <@${kullanici}> kişisini başarıyla ekledin!` })
+                            interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `${interaction.guild.emojiBul("Onay")} <@${modal.member.id}> kişisinin <#${channel.v}> kanalına <@${kullanici}> eklendi` })
                         }
                     })
                 }
@@ -230,8 +231,8 @@ Odana eklediğin tüm kullanıcılar odanı yönetebilir!
                            await channel.t.permissionOverwrites.edit(kullanici, { ViewChannel: false  });
                        
                             await modal.deferReply({ ephemeral: true })
-                            modal.followUp({ content: `Merhaba! Kanalına <@${kullanici}> kişisini başarıyla çıkardın!` })
-                            interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `<@${modal.member.id}> kişisinin <#${channel.v}> kanalından <@${kullanici}> çıkardı` })
+                            modal.followUp({ content: `${interaction.guild.emojiBul("Onay")} Merhaba! Kanalına <@${kullanici}> kişisini başarıyla çıkardın!` })
+                            interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `${interaction.guild.emojiBul("Onay")} <@${modal.member.id}> kişisinin <#${channel.v}> kanalından <@${kullanici}> çıkardı` })
                         }
                     })
                 }
@@ -266,22 +267,22 @@ Odana eklediğin tüm kullanıcılar odanı yönetebilir!
                             await channel.v.edit({ name: newName }).catch(() => { })
                             await channel.t.edit({ name: newName }).catch(() => { })
                             await modal.deferReply({ ephemeral: true })
-                            modal.followUp({ content: `Merhaba! Kanalının yeni ismi \`${newName}\` olarak ayarlandı!` })
-                            interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `<@${modal.member.id}> kişisinin <#${channel.v}> kanalının ismi \`${newName}\` olarak değiştirildi!` })
+                            modal.followUp({ content: `${interaction.guild.emojiBul("Onay")} Merhaba! Kanalının yeni ismi \`${newName}\` olarak ayarlandı!` })
+                            interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `${interaction.guild.emojiBul("Onay")} <@${modal.member.id}> kişisinin <#${channel.v}> kanalının ismi \`${newName}\` olarak değiştirildi!` })
                         }
                     })
                 }
                 if (interaction.values[0] == "ozelodakapat") {
                     let privateVoiceData = await PrivRoom.findOne({ userID: interaction.member.id });
                     let channel = { v: interaction.guild.channels.cache.get(privateVoiceData.vChannelID), t: interaction.guild.channels.cache.get(privateVoiceData.tChannelID) }
-                    interaction.reply({ content: `Odanız **3** saniye içerisinde silinecektir.`, ephemeral: true }).then(() => {
+                    interaction.reply({ content: `${interaction.guild.emojiBul("Onay")} Odanız **3** saniye içerisinde silinecektir.`, ephemeral: true }).then(() => {
                         setTimeout(async () => {
                             await PrivRoom.deleteOne({ userID: interaction.member.id });
                             await channel.v.delete().catch(() => { });
                             await channel.t.delete().catch(() => { });
                         }, 3000)
                     })
-                    interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `<@${interaction.member.id}> kişisinin özel odası kapatıldı!` })
+                    interaction.guild.channels.cache.find(x => x.name == "priv-log").send({ content: `${interaction.guild.emojiBul("Onay")} <@${interaction.member.id}> kişisinin özel odası kapatıldı!` })
                 }
             }
 
