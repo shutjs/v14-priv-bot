@@ -1,7 +1,8 @@
 # v14-priv-bot
 
 # İçindeki d.txtleri silin onlar githuba doğru düzgün yüklensin diye
-
+# Altyapı Fixlenmiştir
+# Hata Olursa _shut 
 
 Priv sunucularına göre özel oda sistemli çekiliş sistemli priv botu
 
