@@ -50,7 +50,7 @@ Chat kanalı : ${Datas?.chatChannel ? `<#${Datas?.chatChannel}>` : `${message.gu
 Sunucu Url : ${Datas?.guildUrl ? Datas?.guildUrl : `${message.guild.emojiBul("Iptal")}`} (\`.setup url <Url>\`)
 Sunucu Sahibi Rolü : ${Datas?.serverFounders ? `${Datas?.serverFounders.map(x => `<@&${x}>`).join(", ")}` : `${message.guild.emojiBul("Iptal")}`} (\`.setup serverFounders <Rol/ID>\`)
 Vip rolü : ${Datas?.vipRole ? `<@&${Datas?.vipRole}>` : `${message.guild.emojiBul("Iptal")}`} (\`.setup vipRol <Rol/ID>\`)
-Main Rol : ${Datas?.mainRole ? `<@&${Datas?.mainRole}>` : `${message.guild.emojiBul("Iptal")}`} (\`.setup mainRol <Rol/ID>\`)
+Main Rol (Üye Rolü) : ${Datas?.mainRole ? `<@&${Datas?.mainRole}>` : `${message.guild.emojiBul("Iptal")}`} (\`.setup mainRol <Rol/ID>\`)
 Booster Rol : ${Datas?.boosterRole ? `<@&${Datas?.boosterRole}>` : `${message.guild.emojiBul("Iptal")}`} (\`.setup booster <Rol/ID>\`)
 `)
                 ]
