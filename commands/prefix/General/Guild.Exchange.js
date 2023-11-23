@@ -1,5 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, StringSelectMenuBuilder, PermissionsBitField, ChannelType } = require('discord.js');
 const guildData = require("../../../Schemas/Guild")
+const PrivRooms = require("../../../Schemas/PrivRoom")
 const { Guild } = require("../../../config/config")
 const loglar = [
     "priv-log",
@@ -54,7 +55,7 @@ collector.on('collect', async (interaction) => {
 
    if (interaction.values[0] == "emoji") {
        const emojis = [
-           { name: "Onay", url: "https://cdn.discordapp.com/emojis/1081226208857051156.gif?size=96&quality=lossless" },
+           { name: "Onay", url: "https://cdn.discordapp.com/emojis/1171096956135821364.gif?size=96&quality=lossless" },
            { name: "Iptal", url: "https://cdn.discordapp.com/emojis/1042439641049079890.gif?size=96&quality=lossless" },
        ]
        emojis.forEach(async (x) => {
@@ -83,6 +84,7 @@ collector.on('collect', async (interaction) => {
 
 }
    if(interaction.values[0] == "ozeloda"){
+
     interaction.channel.send({ content: `${message.guild.emojiBul("Onay")} Özel oda kurulumu başladı. Lütfen biraz bekleyiniz!` }).sil(20)
             const everyone = message.guild.roles.cache.find(a => a.name === "@everyone");
             const ozelOda = await message.guild.channels.create({
@@ -113,7 +115,23 @@ collector.on('collect', async (interaction) => {
                     }
                 ]
             }).then(async kanal => await Data.findOneAndUpdate({ guildID: message.guild.id }, { $set: { ozelOdaTextt: kanal.id } }, { upsert: true }).exec())
-            console.log(Datas)
+            if(ozelOdaText == null){
+                const ozelOdaText = await message.guild.channels.create({
+                    name: `Özel Oda Panel`,
+                    type: ChannelType.GuildCategory,
+                    permissionOverwrites: [
+                        {
+                            id: everyone.id,
+                            deny: [PermissionsBitField.Flags.ViewChannel],
+                        },
+                        {
+                            id: Datas?.mainRole,
+                            deny: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages]
+                        }
+                    ]
+                }).then(async kanal => await Data.findOneAndUpdate({ guildID: message.guild.id }, { $set: { ozelOdaTextt: kanal.id } }, { upsert: true }).exec())
+            }
+
             const panel = await message.guild.channels.create({
                 name: `ozel-oda-olustur`,
                 type: ChannelType.GuildText,
