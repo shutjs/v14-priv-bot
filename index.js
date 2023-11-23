@@ -15,7 +15,7 @@ const client = new Client({
   ],
   presence: {
     activities: [{
-      name: "Shut ❤️ Esalet",
+      name: "Shut ❤️",
       type: 0
     }],
     status: 'idle'
